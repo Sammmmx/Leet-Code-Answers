@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// In this Solution you start from the middle of the string and expand outwards to find the largest palindrome
 func longestPalindrome(s string) string {
 	longest := ""
 
