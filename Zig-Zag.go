@@ -3,8 +3,8 @@ package main
 import "strings"
 
 func convert(s string, numRows int) string {
-	var result strings.Builder
-
+	var result strings.Builder                  // strings.Builder minimizes the space. Its better than using += string
+ 
 	if numRows == 1 {
 		return s
 	}
