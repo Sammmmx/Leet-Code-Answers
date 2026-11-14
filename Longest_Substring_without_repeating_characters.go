@@ -1,22 +1,21 @@
 
 func lengthOfLongestSubstring(s string) int {
-    lastSeen := make(map[byte]int)
+    var lastSeen [256]int
+
     longest := 0
     left := 0
 
     for right := 0; right < len(s); right++ {
         char := s[right]
 
-        if index, exists := lastSeen[char]; exists && index >= left {
-            left = index + 1
+        if lastSeen[char] > left {
+            left = lastSeen[char]
         }
 
-        lastSeen[char] = right
+        lastSeen[char] = right + 1
 
-        current := right - left + 1
-
-        if current > longest {
-            longest = current
+        if right-left+1 > longest {
+            longest = right - left + 1
         }
     }
 
